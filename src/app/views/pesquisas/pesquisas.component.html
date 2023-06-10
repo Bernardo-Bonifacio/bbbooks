@@ -1,0 +1,67 @@
+<!-- Projeto BBBOOKS -->
+
+<main class="container-fluid">
+  <section
+    class="container d-flex align-items-center flex-column gap-5 min-vh-100"
+  >
+    <form class="d-flex bg-white p-5" role="search">
+      <input
+        class="form-control text-center rounded-0"
+        type="search"
+        placeholder="O que você está buscando?"
+        aria-label="Search"
+        style="width: 25rem"
+        [formControl]="campoBusca"
+        name="value"
+      />
+      <button class="btn btn-outline-success rounded-0" type="submit">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+          />
+        </svg>
+      </button>
+    </form>
+    <div
+      class="container d-flex justify-content-between"
+      *ngIf="livrosEncontrados$ | async as listaLivros"
+    >
+      <div class="d-flex flex-wrap">
+        <div
+          class="card m-1 border border-warning-subtle"
+          *ngFor="let livro of listaLivros"
+        >
+          <div class="card" style="width: 15rem; height: 30rem">
+            <img
+              src="{{
+                livro.thumbnail != undefined
+                  ? livro.thumbnail
+                  : '../../../../../assets/alerta-imagem-indisponivel.jpeg'
+              }}"
+              class="card-img-top w-100 h-50"
+              alt="{{ livro.title }}"
+            />
+            <div class="card-body">
+              <h6 class="card-title">{{ livro.title | slice : 0 : 25 }}</h6>
+              <p class="card-text">Autor: {{ livro.authors | autores }}</p>
+              <p class="card-text">
+                Data: {{ livro.publishedDate | date : "dd/MM/yyyy" }}
+              </p>
+              <p class="card-text">
+                Editora: {{ livro.publisher | slice : 0 : 15 }}
+              </p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

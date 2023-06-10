@@ -1,0 +1,262 @@
+<!-- Projeto BBBOOKS -->
+
+<main class="d-flex flex-column gap-5 my-4">
+  <!-- SEÇÃO DESTAQUES -->
+  <section>
+    <div id="carouselIndicatorsDestaques" class="carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselIndicatorsDestaques"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselIndicatorsDestaques"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselIndicatorsDestaques"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner carousel-home">
+        <div class="carousel-item active">
+          <img
+            src="../../../assets/livros-para-dar-de-presente.png"
+            class="w-100 h-50"
+            alt="Livros para dar de presente"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="../../../assets/livros-programacao.jpg"
+            class="w-100 h-50"
+            alt="Livros de programação"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="../../../assets/livros-promocao.jpg"
+            class="w-100 h-50"
+            alt="Livros em promoção"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselIndicatorsDestaques"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselIndicatorsDestaques"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- SEÇÃO HTML -->
+  <section class="mx-5">
+    <h4 class="fw-bold ps-5">Livros de HTML</h4>
+    <div class="container d-flex justify-content-between">
+      <div
+        class="d-flex flex-wrap"
+        *ngFor="let livro of livrosHTML; let i = index"
+      >
+        <div class="card m-1 border border-warning-subtle" *ngIf="i < 4">
+          <div class="card" style="width: 15rem; height: 30rem">
+            <img
+              src="{{
+                livro.thumbnail != undefined
+                  ? livro.thumbnail
+                  : '../../../../../assets/alerta-imagem-indisponivel.jpeg'
+              }}"
+              class="card-img-top w-100 h-50"
+              alt="{{ livro.title }}"
+            />
+            <div class="card-body">
+              <h6 class="card-title">{{ livro.title | slice : 0 : 20 }}</h6>
+              <p class="card-text">
+                Autor: {{ livro.authors | autores | slice : 0 : 15 }}
+              </p>
+              <p class="card-text">
+                Data: {{ livro.publishedDate | date : "dd/MM/yyyy" }}
+              </p>
+              <p class="card-text">
+                Editora: {{ livro.publisher | slice : 0 : 15 }}
+              </p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO CSS -->
+  <section class="mx-5">
+    <h4 class="fw-bold ps-5">Livros de CSS</h4>
+    <div class="container d-flex justify-content-between">
+      <div
+        class="d-flex flex-wrap"
+        *ngFor="let livro of livrosCSS; let i = index"
+      >
+        <div class="card m-1 border border-warning-subtle" *ngIf="i < 4">
+          <div class="card" style="width: 15rem; height: 30rem">
+            <img
+              src="{{
+                livro.thumbnail != undefined
+                  ? livro.thumbnail
+                  : '../../../../../assets/alerta-imagem-indisponivel.jpeg'
+              }}"
+              class="card-img-top w-100 h-50"
+              alt="{{ livro.title }}"
+            />
+            <div class="card-body">
+              <h6 class="card-title">{{ livro.title | slice : 0 : 20 }}</h6>
+              <p class="card-text">
+                Autor: {{ livro.authors | autores | slice : 0 : 15 }}
+              </p>
+              <p class="card-text">
+                Data: {{ livro.publishedDate | date : "dd/MM/yyyy" }}
+              </p>
+              <p class="card-text">
+                Editora: {{ livro.publisher | slice : 0 : 15 }}
+              </p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO JAVASCRIPT -->
+  <section class="mx-5">
+    <h4 class="fw-bold  ps-5">Livros JavaScript</h4>
+    <div class="container d-flex justify-content-between">
+      <div
+        class="d-flex flex-wrap"
+        *ngFor="let livro of livrosJavaScript; let i = index"
+      >
+        <div class="card m-1 border border-warning-subtle" *ngIf="i < 4">
+          <div class="card" style="width: 15rem; height: 30rem">
+            <img
+              src="{{
+                livro.thumbnail != undefined
+                  ? livro.thumbnail
+                  : '../../../../../assets/alerta-imagem-indisponivel.jpeg'
+              }}"
+              class="card-img-top w-100 h-50"
+              alt="{{ livro.title }}"
+            />
+            <div class="card-body">
+              <h6 class="card-title">{{ livro.title | slice : 0 : 20 }}</h6>
+              <p class="card-text">
+                Autor: {{ livro.authors | autores | slice : 0 : 15 }}
+              </p>
+              <p class="card-text">
+                Data: {{ livro.publishedDate | date : "dd/MM/yyyy" }}
+              </p>
+              <p class="card-text">
+                Editora: {{ livro.publisher | slice : 0 : 15 }}
+              </p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO TYPESCRIPT -->
+  <section class="mx-5">
+    <h4 class="fw-bold ps-5">Livros TypeScript</h4>
+    <div class="container d-flex justify-content-between">
+      <div
+        class="d-flex flex-wrap"
+        *ngFor="let livro of livrosTypeScript; let i = index"
+      >
+        <div class="card m-1 border border-warning-subtle" *ngIf="i < 4">
+          <div class="card" style="width: 15rem; height: 30rem">
+            <img
+              src="{{
+                livro.thumbnail != undefined
+                  ? livro.thumbnail
+                  : '../../../../../assets/alerta-imagem-indisponivel.jpeg'
+              }}"
+              class="card-img-top w-100 h-50"
+              alt="{{ livro.title }}"
+            />
+            <div class="card-body">
+              <h6 class="card-title">{{ livro.title | slice : 0 : 20 }}</h6>
+              <p class="card-text">
+                Autor: {{ livro.authors | autores | slice : 0 : 15 }}
+              </p>
+              <p class="card-text">
+                Data: {{ livro.publishedDate | date : "dd/MM/yyyy" }}
+              </p>
+              <p class="card-text">
+                Editora: {{ livro.publisher | slice : 0 : 15 }}
+              </p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO ANGULAR -->
+  <section class="mx-5">
+    <h4 class="fw-bold ps-5">Livros Angular</h4>
+    <div class="container d-flex justify-content-between">
+      <div
+        class="d-flex flex-wrap"
+        *ngFor="let livro of livrosAngular; let i = index"
+      >
+        <div class="card m-1 border border-warning-subtle" *ngIf="i < 4">
+          <div class="card" style="width: 15rem; height: 30rem">
+            <img
+              src="{{
+                livro.thumbnail != undefined
+                  ? livro.thumbnail
+                  : '../../../../../assets/alerta-imagem-indisponivel.jpeg'
+              }}"
+              class="card-img-top w-100 h-50"
+              alt="{{ livro.title }}"
+            />
+            <div class="card-body">
+              <h6 class="card-title">{{ livro.title | slice : 0 : 20 }}</h6>
+              <p class="card-text">
+                Autor: {{ livro.authors | autores | slice : 0 : 15 }}
+              </p>
+              <p class="card-text">
+                Data: {{ livro.publishedDate | date : "dd/MM/yyyy" }}
+              </p>
+              <p class="card-text">
+                Editora: {{ livro.publisher | slice : 0 : 15 }}
+              </p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
